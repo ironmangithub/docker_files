@@ -8,6 +8,7 @@ RUN apt-get update -y && apt-get upgrade -y
 
 RUN apt-get update && apt-get -y install sudo
 RUN apt-get update && apt-get -y install libgl1
+RUN apt-get update && apt-get -y install libglib2.0-0
 
 ARG user=azureuser
 ARG group=azureuser
