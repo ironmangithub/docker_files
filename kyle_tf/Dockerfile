@@ -7,6 +7,7 @@ RUN apt-get -qq update && apt-get -qq -y install curl bzip2 && curl -sSL https:/
 RUN apt-get update -y && apt-get upgrade -y
 
 RUN apt-get update && apt-get -y install sudo
+RUN apt-get update && apt-get -y install libgl1
 
 ARG user=azureuser
 ARG group=azureuser
