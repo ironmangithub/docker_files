@@ -52,3 +52,15 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN cd /usr/src/tensorrt/samples/trtexec && make
 
 WORKDIR /
+
+RUN apt-get update && apt-get -y install sudo
+RUN apt-get update && apt-get -y install libgl1
+
+ARG user=azureuser
+ARG group=azureuser
+ARG uid=1000
+ARG gid=1000
+
+RUN groupadd -g ${gid} ${group} && useradd -m -u ${uid} -g ${group} -s /bin/sh ${user} && echo "$user:$group" | chpasswd && adduser ${user} sudo
+
+USER ${user}
